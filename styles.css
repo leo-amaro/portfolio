@@ -8,7 +8,8 @@
 
 body {
   font-family: "Poppins", sans-serif;
-  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+  padding: 0 16px;
 }
 
 li,
@@ -20,18 +21,24 @@ button {
 }
 
 header {
-  display: flex;
+  /* display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1em;
-  background: #879193;
+  padding: 1em; */
+  /* background: #879193; */
 }
 
 .logo {
   cursor: pointer;
-  width: 5em;
+  width: 3em;
 }
 
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  align-items: center;
+}
 .nav__links {
   list-style: none;
 }
@@ -48,6 +55,13 @@ header {
 
 .nav__links li a:hover {
   color: #524e4e;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-flow: wrap-reverse;
 }
 
 button {
