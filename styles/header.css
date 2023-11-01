@@ -1,0 +1,232 @@
+.navTrigger {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: 0;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  -webkit-appearence: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.navTrigger:focus {
+  outline: none;
+}
+.navTrigger svg {
+  width: 64px;
+  height: 48px;
+  top: -6px;
+  left: -14px;
+  stroke: var(--white-color);
+  stroke-width: 4px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  display: block;
+  position: absolute;
+}
+.navTrigger svg path {
+  transition: stroke-dasharray var(--duration, 0.85s) var(--easing, ease) var(--delay, 0s), stroke-dashoffset var(--duration, 0.85s) var(--easing, ease) var(--delay, 0s);
+  stroke-dasharray: var(--array-1, 26px) var(--array-2, 100px);
+  stroke-dashoffset: var(--offset, 126px);
+  transform: translateZ(0);
+}
+.navTrigger svg path:nth-child(2) {
+  --duration: .7s;
+  --easing: ease-in;
+  --offset: 100px;
+  --array-2: 74px;
+}
+.navTrigger svg path:nth-child(3) {
+  --offset: 133px;
+  --array-2: 107px;
+}
+.navTrigger.active svg {
+  stroke: var(--white-color);
+}
+.navTrigger.active svg path {
+  --offset: 57px;
+}
+.navTrigger.active svg path:nth-child(1), .navTrigger.active svg path:nth-child(3) {
+  --delay: .15s;
+  --easing: cubic-bezier(.2, .4, .2, 1.1);
+}
+.navTrigger.active svg path:nth-child(2) {
+  --duration: .4s;
+  --offset: 2px;
+  --array-1: 1px;
+}
+.navTrigger.active svg path:nth-child(3) {
+  --offset: 58px;
+}
+
+.navMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  background: #FFF;
+  opacity: 0;
+  z-index: -1;
+  visibility: hidden;
+  transition: all 0.375s;
+}
+.navMenu.active {
+  opacity: 1;
+  z-index: 100;
+  visibility: visible;
+}
+.navMenu.active::before {
+  transform: skew(-14deg) translateX(0);
+}
+.navMenu.active li {
+  opacity: 1;
+  transform: translateY(0);
+}
+.navMenu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: -15px;
+  background: var(--black-color);
+  transform-origin: 0 0;
+  transform: skew(-14deg) translateX(-120%);
+  transition: all 0.275s 0.1s;
+}
+.navMenu ul {
+  list-style: none;
+  padding: 0;
+  display: inline-flex;
+  flex-direction: column;
+  height: 93%;
+  /* Should be 100%, but we have a notice message :D */
+  align-items: flex-end;
+  justify-content: center;
+  transform: translateX(-18%) skew(-16deg);
+}
+.navMenu ul li {
+  display: block;
+  margin: 0.5rem 0;
+  text-align: right;
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.navMenu ul li a {
+  position: relative;
+  left: 0;
+  display: block;
+  padding: 12px 0;
+  color: var(--white-color);
+  font-size: 1.4em;
+  text-decoration: none;
+  transform: skew(16deg);
+  transition: 0.25s;
+}
+.navMenu ul li a:hover {
+  left: 10px;
+}
+.navMenu ul li:nth-child(1) {
+  transition: all 275ms 275ms;
+}
+.navMenu ul li:nth-child(2) {
+  transition: all 275ms 325ms;
+}
+.navMenu ul li:nth-child(3) {
+  transition: all 275ms 375ms;
+}
+.navMenu ul li:nth-child(4) {
+  transition: all 275ms 425ms;
+}
+.navMenu ul li:nth-child(5) {
+  transition: all 275ms 475ms;
+}
+
+.title_container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100svh;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.title_container h1,
+.title_container h2 {
+  font-size: 5rem;
+  line-height: 5rem;
+  color: var(--white-color);
+}
+.title_container h2 {
+  font-size: 3rem;
+  text-align: center;
+}
+.title_container .title {
+  /* text-transform: uppercase; */
+  /* margin: 0px auto 60px; */
+  width: fit-content;
+  /* max-width: 1170px; */
+  text-align: center;
+}
+.title_container > span[data-value=Leonardo] {
+  font-size: 4rem;
+  /* color: var(--white-color); */
+  font-weight: 900;
+  background: rgb(35, 219, 164);
+  background: linear-gradient(81deg, rgb(35, 219, 164) 0%, rgb(68, 68, 68) 62%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* width: 100%;
+  font-size: 140px;
+  text-align: center; */
+}
+
+header .video-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+header .video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+header::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+header .desktop {
+  height: 3rem;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  left: 0;
+  color: #fff;
+  z-index: 3;
+  margin: 0 auto;
+  justify-content: space-between;
+  /* max-width: 1200px; */
+  max-width: 1200px;
+  display: flex;
+}
+header .logo {
+  width: 3rem;
+}
